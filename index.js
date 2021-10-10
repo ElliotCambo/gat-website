@@ -26,6 +26,6 @@ router.get("/*",function(req,res){
 app.use("/",router);
 
 
-server.listen(process.env.PORT || 4433, () => {
+server.listen(process.env.PORT || 443, () => {
     console.log(`Server started on port ${server.address().port} :)`);
 });
