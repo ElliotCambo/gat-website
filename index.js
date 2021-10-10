@@ -1,11 +1,7 @@
 var express = require("express");
-// const bodyParser = require('body-parser');
-var mysql = require("mysql");
-var postmark = require("postmark");
 var app = express();
 var router = express.Router();
 var pathToGATWebsiteStatic = __dirname + '/public/';
-const uuidv4 = require('uuid/v4');
 
 app.use("/gat", express.static(pathToGATWebsiteStatic));
 app.use(express.json());
