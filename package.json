@@ -1,0 +1,27 @@
+{
+  "name": "chat_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElliotCambo/chat_website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElliotCambo/chat_website/issues"
+  },
+  "homepage": "https://github.com/ElliotCambo/chat_website#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "forever": "^1.0.0",
+    "forever-monitor": "^1.7.1",
+    "mysql": "^2.17.1",
+    "request": "^2.88.0",
+    "uuid": "^3.3.3"
+  }
+}
