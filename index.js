@@ -1,10 +1,21 @@
 var express = require("express");
 var app = express();
+var https = require('https');
+var fs = require('fs');
 var router = express.Router();
 var pathToGATWebsiteStatic = __dirname + '/public/';
 
+
+var privateKey  = fs.readFileSync('/root/gat/GAT-chain/certs/gat.key', 'utf8');
+var certificate = fs.readFileSync('/root/gat/GAT-chain/certs/bundle.crt', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
+
+
 app.use("/gat", express.static(pathToGATWebsiteStatic));
 app.use(express.json());
+
+const server = https.createServer(credentials, app);
 
 router.get("/*",function(req,res){
         console.log(pathToGATWebsiteStatic + "index.html")
@@ -14,6 +25,7 @@ router.get("/*",function(req,res){
 
 app.use("/",router);
 
-app.listen(443,function(){
-  console.log("Live at Port 80");
+
+server.listen(process.env.PORT || 4433, () => {
+    console.log(`Server started on port ${server.address().port} :)`);
 });
