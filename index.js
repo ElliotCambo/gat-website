@@ -12,7 +12,7 @@ var certificate = fs.readFileSync('/root/gat/GAT-chain/certs/bundle.crt', 'utf8'
 var credentials = {key: privateKey, cert: certificate};
 
 
-app.use("/gat", express.static(pathToGATWebsiteStatic));
+app.use("/public", express.static(pathToGATWebsiteStatic));
 app.use(express.json());
 
 const server = https.createServer(credentials, app);
