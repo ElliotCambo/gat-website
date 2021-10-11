@@ -17,6 +17,12 @@ app.use(express.json());
 
 const server = https.createServer(credentials, app);
 
+var http = require('http');
+http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
+
 router.get("/*",function(req,res){
         console.log(pathToGATWebsiteStatic + "index.html")
         res.sendFile(pathToGATWebsiteStatic + "index.html");
